@@ -1,24 +1,31 @@
 import {React, useState} from "react";
+
+// components:
+import {ColorSelect} from "./ColorSelect/ColorSelect";
 import {ColorPreview} from "./ColorPreview/ColorPreview";
 import {ColorCode} from "./ColorCode/ColorCode";
-
-// hooks:
-import {useMousePosition} from "../../hooks/useMousePosition";
 
 // style:
 import "./ColorPicker.css";
 
 export const ColorPicker = () => {
-  const rainbow = document.querySelector(".Rainbow");
-  const [saturation, setSaturation] = useState(50);
-  const [lightness, setLightness] = useState(50);
-  const position = useMousePosition(rainbow);
+  const [color, setColor] = useState({
+    hue: 0,
+    saturation: "50%",
+    lightness: "50%",
+  });
+
+  const {hue, saturation, lightness} = color;
+
+  const updateColorValue = (updatedColor) => {
+    setColor({...color, ...updatedColor});
+  };
 
   return (
     <div className="ColorPicker">
-      <div className="Rainbow"></div>
-      <ColorPreview />
-      <ColorCode saturation={position.x} lightness={position.y} />
+      <ColorSelect color={color} onUpdateColorValue={updateColorValue} />
+      <ColorPreview color={color} />
+      <ColorCode color={color} />
     </div>
   );
 };

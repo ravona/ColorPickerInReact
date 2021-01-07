@@ -1,9 +1,11 @@
 import React from "react";
+import "./ColorCode.css";
 
-export const ColorCode = ({saturation, lightness}) => {
+export const ColorCode = ({color}) => {
+  const {hue, saturation, lightness} = color;
   return (
     <div>
-      hsl(0, {saturation}%, {lightness}%
+      hsl({hue}, {saturation}, {lightness})
     </div>
   );
 };
