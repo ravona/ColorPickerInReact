@@ -4,8 +4,8 @@ import "./ColorCode.css";
 export const ColorCode = ({color}) => {
   const {hue, saturation, lightness} = color;
   return (
-    <div>
-      hsl({hue}, {saturation}, {lightness})
+    <div className="ColorCode">
+      hsl({hue}, {saturation}%, {lightness}%)
     </div>
   );
 };

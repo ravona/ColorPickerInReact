@@ -1,19 +1,16 @@
 import {React} from "react";
 
+// hooks:
+import {useMousePosition} from "../../../hooks/useMousePosition";
+
 // style:
 import "./ColorSelect.css";
 
-// hooks:
-import {useMousePosition} from "../../../hooks/useMousePosition";
-const rainbow = document.querySelector(".ColorSelect");
-
 export const ColorSelect = ({onUpdateColorValue}) => {
+  const colorSelectElement = document.querySelector(".ColorSelect");
   const position = useMousePosition(window);
 
-  let updatedColor = {
-    saturation: position.x,
-    lightness: position.y,
-  };
+  const updatedColor = {saturation: position.x, lightness: position.y};
 
   const handleColorSelect = () => {
     onUpdateColorValue(updatedColor);
