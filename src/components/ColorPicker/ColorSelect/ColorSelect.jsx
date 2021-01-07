@@ -10,7 +10,10 @@ const rainbow = document.querySelector(".ColorSelect");
 export const ColorSelect = ({onUpdateColorValue}) => {
   const position = useMousePosition(window);
 
-  const updatedColor = {saturation: position.x, lightness: position.y};
+  let updatedColor = {
+    saturation: position.x,
+    lightness: position.y,
+  };
 
   const handleColorSelect = () => {
     onUpdateColorValue(updatedColor);
