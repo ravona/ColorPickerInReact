@@ -37,7 +37,6 @@ export const ColorPicker = () => {
       <ColorSelect color={color} onUpdateColorValue={updateColorValue} />
       <ColorPreview color={hslColorToRgbColor(color)} />
       <ColorCode color={color} />
-      {hslColorToRgbColor(color)}
     </div>
   );
 };
