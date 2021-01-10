@@ -7,8 +7,7 @@ import {useMousePosition} from "../../../hooks/useMousePosition";
 import "./ColorSelect.css";
 
 export const ColorSelect = ({onUpdateColorValue}) => {
-  const colorSelectElement = document.querySelector(".ColorSelect");
-  const position = useMousePosition(window);
+  const position = useMousePosition();
 
   const updatedColor = {saturation: position.x, lightness: position.y};
 

@@ -1,17 +1,23 @@
 .ColorSelect {
-  box-sizing: border-box;
+  box-shadow: 0 0 0 1px black;
+  position: relative;
   position: relative;
   height: 100px;
   width: 100px;
-  border: 1px solid #000;
-
   background-image: linear-gradient(
-      to right,
-      hsl(0, 100%, 100%),
-      hsl(0, 50%, 50%)
-    ),
-    linear-gradient(to top, hsl(0, 100%, 100%), hsl(0, 50%, 50%));
-  margin-bottom: 20px;
+    to right,
+    hsl(0, 0%, 50%),
+    hsl(0, 100%, 50%)
+  );
 }
 
-/* Saturation goes from left to right, Lightness from bottom to top. */
+.ColorSelect::before {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  left: 0;
+  top: 0;
+  background: linear-gradient(to top, hsl(0, 100%, 0%), hsl(0, 100%, 100%));
+  mix-blend-mode: hard-light;
+}
