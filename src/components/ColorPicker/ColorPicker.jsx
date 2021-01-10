@@ -8,8 +8,6 @@ import {ColorCode} from "./ColorCode/ColorCode";
 // style:
 import "./ColorPicker.css";
 
-let convert = require("color-convert");
-
 export const ColorPicker = () => {
   const [color, setColor] = useState({
     hue: 0,
@@ -17,25 +15,14 @@ export const ColorPicker = () => {
     lightness: "50",
   });
 
-  const {hue, saturation, lightness} = color;
-
   const updateColorValue = (updatedColor) => {
     setColor({...color, ...updatedColor});
-  };
-
-  const hslColorToRgbColor = (color) => {
-    let rgbColor = convert.hsl.rgb(
-      color.hue,
-      color.saturation,
-      color.lightness
-    );
-    return rgbColor;
   };
 
   return (
     <div className="ColorPicker">
       <ColorSelect color={color} onUpdateColorValue={updateColorValue} />
-      <ColorPreview color={hslColorToRgbColor(color)} />
+      <ColorPreview color={color} />
       <ColorCode color={color} />
     </div>
   );
