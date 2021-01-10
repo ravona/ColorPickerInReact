@@ -1,15 +1,15 @@
 import {useEffect, useState} from "react";
 
-export const useMousePosition = (element) => {
+export const useMousePosition = () => {
   const [position, setPosition] = useState({x: 0, y: 0});
 
   useEffect(() => {
-    const setFromEvent = (e) => setPosition({x: e.offsetX, y: e.offsetY});
+    const setFromEvent = (e) => setPosition({x: e.offsetX, y: 100 - e.offsetY});
 
-    element.addEventListener("mousemove", setFromEvent);
+    window.addEventListener("mousemove", setFromEvent);
 
     return () => {
-      element.removeEventListener("mousemove", setFromEvent);
+      window.removeEventListener("mousemove", setFromEvent);
     };
   }, []);
 
