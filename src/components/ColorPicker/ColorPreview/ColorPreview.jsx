@@ -4,11 +4,13 @@ import React from "react";
 import "./ColorPreview.css";
 
 export const ColorPreview = ({color}) => {
+  const {hue, saturation, lightness} = color;
+
   return (
     <div
       className="ColorPreview"
       style={{
-        backgroundColor: `rgb(${[...color]})`,
+        backgroundColor: `hsl(${hue}, ${saturation}%, ${lightness}%)`,
       }}
     ></div>
   );
